@@ -63,7 +63,7 @@ pub struct ExtractReq {
 
 
 impl Collab {
-    fn title(&self) -> &'static str {
+    pub fn title(&self) -> &'static str {
         match self {
             Collab::PAYMENTS => "Платежи",
             Collab::OLIVIA => "ОЛИВИЯ МАКСАКОВА",
