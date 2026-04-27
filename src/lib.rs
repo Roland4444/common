@@ -23,6 +23,11 @@ pub enum Collab { PAYMENTS,    OLIVIA,    BABEFA,    OKLAND,    RED,    TETRIS, 
 pub struct ExtractedMessage {    pub author_name: String,   pub text: String,    pub uuid: Option<String>,    pub id: u64,    pub chat_id: u64,}
 
 
+#[derive(Debug, Serialize, Deserialize)]
+pub struct QuoteInfo {pub message_id: String,pub message_author: String,pub quoted_author: String,pub quoted_text: String,pub reply_text: Option<String>,  }
+
+
+
 
 #[derive(Debug, Serialize, Deserialize)]
 pub struct ExtractResp {    pub success: bool,    pub quoted_text: Option<String>,    pub error: Option<String>,}
@@ -47,9 +52,6 @@ pub const VECTORS_COLLABS: &[Collab] = &[    Collab::PAYMENTS,    Collab::OLIVIA
 
 pub const VECTORS_COLLABS_____: &[&str] = &[    OLIVIA,    BABEFA,    OKLAND,    RED,    TETRIS,    SCANDINAVIA,    KUIB,    POLZ,    ZVEZD,    SKY,    OWN,];
 
-
-#[derive(Debug)]
-pub struct QuoteInfo {    pub message_id: String,  pub message_author: String,    pub quoted_author: String,      pub quoted_text: String,        pub reply_text: Option<String>,  }
 
 pub fn add(left: u64, right: u64) -> u64 {    left + right}
 
