@@ -19,12 +19,12 @@ pub const OWN: &str = "OWN";
 #[derive(Debug, Clone, Copy, Eq, PartialEq, Hash)]
 pub enum Collab { PAYMENTS,    OLIVIA,    BABEFA,    OKLAND,    RED,    TETRIS,    SCANDINAVIA,    KUIB,   POLZ,    ZVEZD,    SKY,    OWN,}
 
-#[derive(Debug, Serialize)]
+#[derive(Debug, Serialize, PartialEq, Deserialize)]
 pub struct ExtractedMessage {    pub author_name: String,   pub text: String,    pub uuid: Option<String>,    pub id: u64,    pub chat_id: u64,}
 
 
 #[derive(Debug, Serialize, Deserialize)]
-pub struct QuoteInfo {pub message_id: String,pub message_author: String,pub quoted_author: String,pub quoted_text: String,pub reply_text: Option<String>,  }
+pub struct QuoteInfo {pub message_id: String, pub quoted_author: String,pub quoted_text: String,pub reply_text: Option<String>,  }
 
 
 
