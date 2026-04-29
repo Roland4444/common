@@ -15,8 +15,7 @@ pub const ZVEZD: &str = "Звездная";
 pub const SKY: &str = "СКАЙ ИГАРСКАЯ";
 pub const OWN: &str = "OWN";
 
-
-#[derive(Debug, Clone, Copy, Eq, PartialEq, Hash)]
+#[derive(Debug, Clone, Copy, Eq, PartialEq, Hash, Serialize, Deserialize)]
 pub enum Collab { PAYMENTS,    OLIVIA,    BABEFA,    OKLAND,    RED,    TETRIS,    SCANDINAVIA,    KUIB,   POLZ,    ZVEZD,    SKY,    OWN,}
 
 #[derive(Debug, Serialize, PartialEq, Deserialize, Clone)]
@@ -29,6 +28,11 @@ impl ExtractedMessage {
 
     
 }
+
+
+#[derive(Debug, Serialize, PartialEq, Deserialize, Clone)]
+pub enum SwitchIDMode {  FROM_CURRENT, FROM_TO }
+
 
 
 #[derive(Debug, Serialize, Deserialize)]
