@@ -19,7 +19,7 @@ pub const OWN: &str = "OWN";
 pub enum Collab { PAYMENTS,    OLIVIA,    BABEFA,    OKLAND,    RED,    TETRIS,    SCANDINAVIA,    KUIB,   POLZ,    ZVEZD,    SKY,    OWN,}
 
 #[derive(Debug, Serialize, PartialEq, Deserialize, Clone)]
-pub struct ExtractedMessage {    pub author_name: String,   pub text: String,    pub uuid: Option<String>,    pub id: u64,    pub chat_id: u64,}
+pub struct ExtractedMessage {    pub author_name: String,   pub text: String,    pub uuid: Option<String>,    pub id: u32,    pub chat_id: u32,}
 
 impl ExtractedMessage {
     pub fn to_string(&self) -> String {
