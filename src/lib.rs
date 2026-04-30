@@ -1,7 +1,4 @@
-
 use serde::{Serialize, Deserialize};
-
-
 pub const PAYMENTS: &str = "Платежи";
 pub const OLIVIA: &str = "ОЛИВИЯ МАКСАКОВА";
 pub const BABEFA: &str = "ЖК Бабефа";
@@ -16,40 +13,22 @@ pub const SKY: &str = "СКАЙ ИГАРСКАЯ";
 pub const OWN: &str = "OWN";
 
 #[derive(Debug, Clone, Copy, Eq, PartialEq, Hash, Serialize, Deserialize)]
-pub enum Collab { PAYMENTS,    OLIVIA,    BABEFA,    OKLAND,    RED,    TETRIS,    SCANDINAVIA,    KUIB,   POLZ,    ZVEZD,    SKY,    OWN,}
+pub enum Collab { PAYMENTS,OLIVIA,BABEFA,OKLAND,RED,TETRIS,SCANDINAVIA,KUIB,POLZ,ZVEZD,SKY,OWN,}
 
-#[derive(Debug, Serialize, PartialEq, Deserialize, Clone)]
-pub struct ExtractedMessage {    pub author_name: String,   pub text: String,    pub uuid: Option<String>,    pub id: u32,    pub chat_id: u32,}
+#[derive(Debug, Serialize, PartialEq, Deserialize, Clone)]pub struct ExtractedMessage {pub author_name: String,pub text: String,pub uuid: Option<String>,pub id: u32,pub chat_id: u32,}
 
-impl ExtractedMessage {
-    pub fn to_string(&self) -> String {
-        format!("AUTHOR::{}, TEXT::{}, UUID::{}, ID::{}, CHAT_ID::{}", self.author_name, self.text, self.uuid.clone().unwrap_or("EFES".to_string()), self.id, self.chat_id)
-    }
-
-    
-}
+impl ExtractedMessage { pub fn to_string(&self) -> String {format!("AUTHOR::{}, TEXT::{}, UUID::{}, ID::{}, CHAT_ID::{}", self.author_name, self.text, self.uuid.clone().unwrap_or("EFES".to_string()), self.id, self.chat_id)}}
 
 
-#[derive(Debug, Serialize, PartialEq, Deserialize, Clone)]
-pub enum SwitchIDMode {  FROM_CURRENT, FROM_TO }
+#[derive(Debug, Serialize, PartialEq, Deserialize, Clone)]pub enum SwitchIDMode {  FROM_CURRENT, FROM_TO }
 
+#[derive(Debug, Serialize, Deserialize)]pub struct QuoteInfo {pub message_id: String, pub quoted_author: String,pub quoted_text: String,pub reply_text: Option<String>,}
 
+#[derive(Debug, Serialize, Deserialize)]pub struct ExtractResp {pub success: bool,pub quoted_text: Option<String>,pub error: Option<String>,}
 
-#[derive(Debug, Serialize, Deserialize)]
-pub struct QuoteInfo {pub message_id: String, pub quoted_author: String,pub quoted_text: String,pub reply_text: Option<String>,  }
+#[derive(Debug, Serialize, Deserialize)]pub enum type_operation{ExtractSimple,ExtractFull}
 
-
-
-
-#[derive(Debug, Serialize, Deserialize)]
-pub struct ExtractResp {    pub success: bool,    pub quoted_text: Option<String>,    pub error: Option<String>,}
-
-#[derive(Debug, Serialize, Deserialize)]
-pub enum type_operation{    ExtractSimple,    ExtractFull
-}
-
-#[derive(Debug, Deserialize)]
-pub struct ExtractReq {    pub collab: String,    pub message_id: u64,    pub type__: type_operation}
+#[derive(Debug, Deserialize)]pub struct ExtractReq {pub collab: String,pub message_id: u64,pub type__: type_operation}
 
 
 impl Collab {
@@ -62,7 +41,7 @@ impl Collab {
 pub const VECTORS_COLLABS: &[Collab] = &[    Collab::PAYMENTS,    Collab::OLIVIA,    Collab::BABEFA,    Collab::OKLAND,    Collab::RED,    Collab::TETRIS,
                                              Collab::SCANDINAVIA, Collab::KUIB,      Collab::POLZ,      Collab::ZVEZD,     Collab::SKY,    Collab::OWN,];
 
-pub const VECTORS_COLLABS_____: &[&str] = &[    OLIVIA,    BABEFA,    OKLAND,    RED,    TETRIS,    SCANDINAVIA,    KUIB,    POLZ,    ZVEZD,    SKY,    OWN,];
+pub const VECTORS_COLLABS_____: &[&str] = &[OLIVIA,BABEFA,OKLAND,RED,TETRIS,SCANDINAVIA,KUIB,POLZ,ZVEZD,SKY,OWN,];
 
 
 pub fn add(left: u64, right: u64) -> u64 {    left + right}
