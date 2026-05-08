@@ -12,8 +12,7 @@ pub const ZVEZD: &str = "Звездная";
 pub const SKY: &str = "СКАЙ ИГАРСКАЯ";
 pub const OWN: &str = "OWN";
 
-#[derive(Debug, Clone, Copy, Eq, PartialEq, Hash, Serialize, Deserialize)]
-pub enum Collab { PAYMENTS,OLIVIA,BABEFA,OKLAND,RED,TETRIS,SCANDINAVIA,KUIB,POLZ,ZVEZD,SKY,OWN,}
+
 
 #[derive(Debug, Serialize, PartialEq, Deserialize, Clone)]pub struct ExtractedMessage {pub author_name: String,pub text: String,pub uuid: Option<String>,pub id: u32,pub chat_id: u32,}
 
@@ -30,6 +29,9 @@ impl ExtractedMessage { pub fn to_string(&self) -> String {format!("AUTHOR::{}, 
 
 #[derive(Debug, Deserialize)]pub struct ExtractReq {pub collab: String,pub message_id: u64,pub type__: type_operation}
 
+
+#[derive(Debug, Clone, Copy, Eq, PartialEq, Hash, Serialize, Deserialize)]
+pub enum Collab { PAYMENTS,OLIVIA,BABEFA,OKLAND,RED,TETRIS,SCANDINAVIA,KUIB,POLZ,ZVEZD,SKY,OWN,}
 
 impl Collab {
     pub fn title(&self) -> &'static str {
