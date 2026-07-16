@@ -2,10 +2,10 @@ use serde::{Serialize, Deserialize};
 pub const PAYMENTS: &str = "Платежи";
 pub const OLIVIA: &str = "ОЛИВИЯ МАКСАКОВА";
 pub const BABEFA: &str = "ЖК Бабефа";
-pub const OKLAND: &str = "ОКЛАНД РЫБАЦКАЯ";
+pub const OKLAND: &str = "ОКЛАНД РЫБАЦКАЯ";//ОКЛАНД РЫБАЦКАЯ
 pub const RED: &str = "РЭД Грузинская";
 pub const TETRIS: &str = "ЖК Тетрис на Керченской";
-pub const SCANDINAVIA: &str = "Скандинавия - Моздокская";
+pub const SCANDINAVIA: &str = "Скандинавия - Моздокская";//"Скандинавия - Моздокская";
 pub const KUIB: &str = "Куйбышева";
 pub const POLZ: &str = "Ползунова";
 pub const ZVEZD: &str = "Звездная";
