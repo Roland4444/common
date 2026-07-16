@@ -14,9 +14,19 @@ pub const OWN: &str = "OWN";
 
 
 
-#[derive(Debug, Serialize, PartialEq, Deserialize, Clone)]pub struct ExtractedMessage {pub author_name: String,pub text: String,pub uuid: Option<String>,pub id: u32,pub chat_id: u32,}
+#[derive(Debug, Serialize, PartialEq, Deserialize, Clone)]pub struct ExtractedMessage {pub author_name: String,pub text: String,pub uuid: Option<String>,pub id: u32,pub chat_id: u32,
+pub attaches: Vec<u32>}
 
-impl ExtractedMessage { pub fn to_string(&self) -> String {format!("AUTHOR::{}, TEXT::{}, UUID::{}, ID::{}, CHAT_ID::{}", self.author_name, self.text, self.uuid.clone().unwrap_or("EFES".to_string()), self.id, self.chat_id)}}
+impl ExtractedMessage { pub fn to_string(&self) -> String {
+    let mut apndx_attach: String = String::from("");
+    for attach_id in &self.attaches  {
+        apndx_attach.push_str(attach_id.to_string().as_str());
+        apndx_attach.push_str(", ");
+    }
+    format!("AUTHOR::{}, TEXT::{}, UUID::{}, ID::{}, CHAT_ID::{}, ATACHES::{}", self.author_name, self.text, self.uuid.clone().unwrap_or("EFES".to_string()), self.id, 
+    self.chat_id, apndx_attach)}
+
+}
 
 
 #[derive(Debug, Serialize, PartialEq, Deserialize, Clone)]pub enum SwitchIDMode {  FROM_CURRENT, FROM_TO }
