@@ -35,9 +35,9 @@ impl ExtractedMessage { pub fn to_string(&self) -> String {
 
 #[derive(Debug, Serialize, Deserialize)]pub struct ExtractResp {pub success: bool,pub quoted_text: Option<String>,pub error: Option<String>,}
 
-#[derive(Debug, Serialize, Deserialize)]pub enum type_operation{ExtractSimple,ExtractFull}
+#[derive(Debug, Serialize, Deserialize)]pub enum TypeOperation{ExtractSimple,ExtractFull}
 
-#[derive(Debug, Deserialize)]pub struct ExtractReq {pub collab: String,pub message_id: u64,pub type__: type_operation}
+#[derive(Debug, Deserialize)]pub struct ExtractReq {pub collab: String,pub message_id: u64,pub type__: TypeOperation}
 
 
 #[derive(Debug, Clone, Copy, Eq, PartialEq, Hash, Serialize, Deserialize)]
