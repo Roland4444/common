@@ -1,4 +1,5 @@
 use serde::{Serialize, Deserialize};
+use chrono::{DateTime, FixedOffset};
 pub const PAYMENTS: &str = "Платежи";
 pub const OLIVIA: &str = "ОЛИВИЯ МАКСАКОВА";
 pub const BABEFA: &str = "ЖК Бабефа";
@@ -16,8 +17,16 @@ pub const CONTRACT_ARCHIVE: &str = "Договора АРХИВ";
 
 
 
-#[derive(Debug, Serialize, PartialEq, Deserialize, Clone)]pub struct ExtractedMessage {pub author_name: String,pub text: String,pub uuid: Option<String>,pub id: u32,pub chat_id: u32,
-pub attaches: Vec<u32>}
+#[derive(Debug, Serialize, PartialEq, Deserialize, Clone)]
+pub struct ExtractedMessage {
+    pub author_name: String,
+    pub text: String,
+    pub uuid: Option<String>,
+    pub id: u32,
+    pub chat_id: u32,
+    pub attaches: Vec<u32>,
+    pub date: DateTime<FixedOffset>,
+}
 
 impl ExtractedMessage { pub fn to_string(&self) -> String {
     let mut apndx_attach: String = String::from("");
@@ -25,9 +34,14 @@ impl ExtractedMessage { pub fn to_string(&self) -> String {
         apndx_attach.push_str(attach_id.to_string().as_str());
         apndx_attach.push_str(", ");
     }
-    format!("AUTHOR::{}, TEXT::{}, UUID::{}, ID::{}, CHAT_ID::{}, ATACHES::{}", self.author_name, self.text, self.uuid.clone().unwrap_or("EFES".to_string()), self.id, 
-    self.chat_id, apndx_attach)}
-
+    format!("AUTHOR::{}, TEXT::{}, UUID::{}, ID::{}, CHAT_ID::{}, ATACHES::{}, DATE::{}", 
+        self.author_name, 
+        self.text, 
+        self.uuid.clone().unwrap_or("EFES".to_string()), 
+        self.id, 
+        self.chat_id, 
+        apndx_attach, 
+        self.date.to_rfc3339())}
 }
 
 
