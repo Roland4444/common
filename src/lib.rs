@@ -11,6 +11,8 @@ pub const POLZ: &str = "Ползунова";
 pub const ZVEZD: &str = "Звездная";
 pub const SKY: &str = "СКАЙ ИГАРСКАЯ";
 pub const OWN: &str = "OWN";
+pub const CONTRACT_4_APPROVAL: &str = "ДОГОВОРА на согласование";
+pub const CONTRACT_ARCHIVE: &str = "Договора АРХИВ";
 
 
 
@@ -41,19 +43,26 @@ impl ExtractedMessage { pub fn to_string(&self) -> String {
 
 
 #[derive(Debug, Clone, Copy, Eq, PartialEq, Hash, Serialize, Deserialize)]
-pub enum Collab { PAYMENTS,OLIVIA,BABEFA,OKLAND,RED,TETRIS,SCANDINAVIA,KUIB,POLZ,ZVEZD,SKY,OWN,}
+pub enum Collab { PAYMENTS,OLIVIA,BABEFA,OKLAND,RED,TETRIS,SCANDINAVIA,KUIB,POLZ,ZVEZD,SKY,OWN,CONTRACT_4_APPROVAL,CONTRACT_ARCHIVE}
+
+
 
 impl Collab {
     pub fn title(&self) -> &'static str {
         match self {            Collab::PAYMENTS => "Платежи",                      Collab::OLIVIA => "ОЛИВИЯ МАКСАКОВА",            Collab::BABEFA => "ЖК Бабефа",
                                 Collab::OKLAND => "ОКЛАНД РЫБАЦКАЯ",                Collab::RED => "РЭД Грузинская",                 Collab::TETRIS => "ЖК Тетрис на Керченской",
                                 Collab::SCANDINAVIA => "Скандинавия - Моздокская",  Collab::KUIB => "Куйбышева",                     Collab::POLZ => "Ползунова",
-                                Collab::ZVEZD => "Звездная",                        Collab::SKY => "СКАЙ ИГАРСКАЯ",                  Collab::OWN => "OWN",}    }}
+                                Collab::ZVEZD => "Звездная",                        Collab::SKY => "СКАЙ ИГАРСКАЯ",                  Collab::OWN => "OWN",
+                                Collab::CONTRACT_ARCHIVE => "Договора АРХИВ",       Collab::CONTRACT_4_APPROVAL =>  "ДОГОВОРА на согласование",
+                            }    }}
 
 pub const VECTORS_COLLABS: &[Collab] = &[    Collab::PAYMENTS,    Collab::OLIVIA,    Collab::BABEFA,    Collab::OKLAND,    Collab::RED,    Collab::TETRIS,
-                                             Collab::SCANDINAVIA, Collab::KUIB,      Collab::POLZ,      Collab::ZVEZD,     Collab::SKY,    Collab::OWN,];
+                                             Collab::SCANDINAVIA, Collab::KUIB,      Collab::POLZ,      Collab::ZVEZD,     Collab::SKY,    Collab::OWN,
+                                             Collab::CONTRACT_ARCHIVE,  Collab::CONTRACT_4_APPROVAL,
 
-pub const VECTORS_COLLABS_____: &[&str] = &[OLIVIA,BABEFA,OKLAND,RED,TETRIS,SCANDINAVIA,KUIB,POLZ,ZVEZD,SKY,OWN,];
+                                             ];
+
+pub const VECTORS_COLLABS_____: &[&str] = &[OLIVIA,BABEFA,OKLAND,RED,TETRIS,SCANDINAVIA,KUIB,POLZ,ZVEZD,SKY,OWN,CONTRACT_ARCHIVE,CONTRACT_4_APPROVAL];
 
 
 pub fn add(left: u64, right: u64) -> u64 {    left + right}
